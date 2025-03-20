@@ -1,0 +1,217 @@
+body { font-family: Arial, sans-serif; padding: 20px; background-color: #eee; }
+.container { display: flex; gap: 30px; max-width: 1200px; margin: 0 auto; }
+.form-section { flex: 1; }
+.form-group { margin-bottom: 15px; }
+input[type="text"], 
+input[type="file"] { width: 100%; padding: 8px; }
+.preview-section { flex: 2; margin-left: 25px; }
+.card-template {
+  background: #fff;
+  margin: 25px 0;
+  box-sizing: content-box;
+  width: 567px;
+  height: 346px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-template:before {
+  content: "";
+  position: absolute;
+  left: 2%;
+  top: 3.2%;
+  right: 2%;
+  bottom: 3.2%;
+  box-sizing: border-box;
+  border: 1px dashed #666;
+}
+.bg-img {
+  position: absolute;
+  top: -434px;
+  transform: scale(0.44) translate(320px, -80px);
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* 动态定位样式 */
+[class^="pos-"] {
+  position: absolute !important;
+}
+
+/* 动态定位样式由JSON配置驱动 */
+
+.name-element {
+  z-index: 2;
+  font-weight: 600;
+}
+
+.title-element {
+  z-index: 2;
+  font-weight: 200;
+  font-family: system-ui;
+}
+
+.logo-element {
+  z-index: 1;
+}
+
+.icon-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-item i {
+  display: inline-block;
+  width: 16px;
+  text-align: center;
+  flex: 16px 1 0;
+}
+
+.addres.icon-item {
+  align-items: baseline;
+  max-width: 80%;
+}
+
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+.template-selector { margin: 20px 0; }
+.template-btn {
+  padding: 8px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #34495e;
+}
+
+.contact-info i {
+  font-size: 14px;
+  color: #3498db;
+}
+
+
+/* 表单容器样式 */
+.form-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+/* 表单组样式 */
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* 输入框基础样式 */
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 15px 12px 45px;
+  box-sizing:border-box;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+}
+
+/* 输入框图标 */
+.form-group::before {
+  font-family: "Font Awesome 6 Free";
+  position: absolute;
+  left: 20px;
+  top: 37px;
+  z-index: 1;
+  color: #a0aec0;
+  font-size: 16px;
+}
+
+.form-group:nth-child(1)::before { content: "\f007"; } /* 姓名图标 */
+.form-group:nth-child(2)::before { content: "\f0b1"; } /* 职位图标 */
+.form-group:nth-child(3)::before { content: "\f095"; } /* 电话图标 */
+.form-group:nth-child(4)::before { content: "\f3c5"; } /* 地址图标 */
+.form-group:nth-child(5)::before { content: "\f0e0"; } /* 邮箱图标 */
+.form-group:nth-child(6)::before { content: "\f1c5"; } /* 文件上传图标 */
+
+/* 输入框焦点状态 */
+input:focus {
+  border-color: #63b3ed;
+  box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.2);
+  background-color: #ffffff;
+  outline: none;
+}
+
+/* 按钮样式优化 */
+button {
+  background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+}
+
+.template-btn {
+  background: #edf2f7;
+  color: #4a5568;
+  border-radius: 6px;
+}
+
+.template-btn:hover {
+  background: #e2e8f0;
+}
+
+h2 {
+  color: #2d3748;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+#qrcode-container {
+  position: absolute;
+}

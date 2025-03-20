@@ -1,0 +1,61 @@
+{
+  "id": "minimal_white",
+  "name": "简约白",
+  "elements": [
+    {
+      "key": "name",
+      "position": {"left": "6%", "top": "10%"},
+      "fontSize": "36px",
+      "color": "#333333"
+    },
+    {
+      "key": "title", 
+      "position": {"left": "6%", "top": "26%"},
+      "fontSize": "24px",
+      "color": "#333"
+    },
+    {
+      "key": "logo",
+      "position": {"left": "80%", "top": "68%"},
+      "width": "120px"
+    },
+    {
+      "key": "phone",
+      "position": {"left": "6%", "top": "40%"},
+      "fontSize": "16px",
+      "color": "#2c3e50"
+    },
+    {
+      "key": "email",
+      "position": {"left": "6%", "top": "50%"},
+      "fontSize": "16px",
+      "color": "#2c3e50"
+    },
+    {
+      "key": "company",
+      "position": {"left": "6%", "top": "60%"},
+      "fontSize": "16px",
+      "color": "#2c3e50"
+    },
+    {
+      "key": "website",
+      "position": { "left": "6%", "top": "70%" },
+      "fontSize": "16px",
+      "color": "#2c3e50"
+    },
+    {
+      "key": "address",
+      "position": {"left": "6%", "top": "80%"},
+      "fontSize": "16px",
+      "color": "#2c3e50"
+    }
+  ],
+  "qrcode": {
+    "position": {
+        "left": "76%",
+        "top": "10%"
+      },
+      "width": "100px",
+      "height": "100px"
+  }
+}
