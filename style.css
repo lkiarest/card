@@ -7,7 +7,11 @@ input[type="file"] { width: 100%; padding: 8px; }
 .preview-section { flex: 2; margin-left: 25px; }
 .card-template {
   background: #fff;
-  margin: 25px 0;
+  padding: 25px;
+  display: inline-block;
+}
+.card-box {
+  border: 1px dashed #e2e8f0;
   box-sizing: content-box;
   width: 567px;
   height: 346px;
@@ -16,22 +20,13 @@ input[type="file"] { width: 100%; padding: 8px; }
   flex-direction: column;
   justify-content: space-between;
 }
-.card-template:before {
-  content: "";
-  position: absolute;
-  left: 2%;
-  top: 3.2%;
-  right: 2%;
-  bottom: 3.2%;
-  box-sizing: border-box;
-  border: 1px dashed #666;
-}
+
 .bg-img {
   position: absolute;
   top: -434px;
-  transform: scale(0.44) translate(320px, -80px);
+  transform: scale(0.44) translate(120px, -180px);
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 /* 动态定位样式 */

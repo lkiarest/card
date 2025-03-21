@@ -10,7 +10,7 @@ new Vue({
       email: 'sales@lilysunshine.net',
       address: 'XIAOGUANGZHUANG TOWN, BAOYING COUNTY, YANGZHOU CITY, JIANGSU PROVINCE,CHINA',
       logo: '',
-      company: 'Yangzhou Lily Sunshine Company Co., Ltd',
+      company: 'Yangzhou Lily Sunshine Co., Ltd',
       website: 'https://lilysunshine.net',
     },
     qrCode: null,
@@ -23,6 +23,10 @@ new Vue({
       this.templates = await templateLoader.loadTemplates();
       this.selectedTemplate = this.templates[0]?.id || '';
       console.log('this.selectedTemplate', this.selectedTemplate)
+
+      if (this.cardData.website) {
+        this.generateQRCode();
+      }
     } catch (error) {
       console.error('初始化模板失败:', error);
     }
@@ -74,8 +78,8 @@ new Vue({
       } else {
         this.qrCode = new window.QRCode(document.getElementById('qrcode-container'), {
           text: this.cardData.website,
-          width: 100,
-          height: 100
+          width: 80,
+          height: 80
         });
       }
     }
@@ -84,6 +88,8 @@ new Vue({
     'cardData.website': function(newVal) {
       if (newVal) {
         this.generateQRCode();
+      } else {
+        this.qrCode.clear();
       }
     }
   }

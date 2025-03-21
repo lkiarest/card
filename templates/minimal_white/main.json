@@ -1,23 +1,27 @@
 {
   "id": "minimal_white",
   "name": "简约白",
+  "styles": {
+    "backgroundImage": "url(templates/minimal_white/bg-water.png)",
+    "backgroundSize": "cover"
+  },
   "elements": [
     {
       "key": "name",
-      "position": {"left": "6%", "top": "10%"},
-      "fontSize": "36px",
+      "position": {"left": "6%", "top": "16%"},
+      "fontSize": "24px",
       "color": "#333333"
     },
     {
       "key": "title", 
       "position": {"left": "6%", "top": "26%"},
-      "fontSize": "24px",
-      "color": "#333"
+      "fontSize": "16px",
+      "color": "#000"
     },
     {
       "key": "logo",
-      "position": {"left": "80%", "top": "68%"},
-      "width": "120px"
+      "position": {"left": "80%", "top": "28%"},
+      "width": "80px"
     },
     {
       "key": "phone",
@@ -52,10 +56,10 @@
   ],
   "qrcode": {
     "position": {
-        "left": "76%",
-        "top": "10%"
+        "left": "80%",
+        "top": "67%"
       },
-      "width": "100px",
-      "height": "100px"
+      "width": "80px",
+      "height": "80px"
   }
 }
