@@ -22,14 +22,14 @@ new Vue({
       const templateLoader = new TemplateLoader();
       this.templates = await templateLoader.loadTemplates();
       this.selectedTemplate = this.templates[0]?.id || '';
-      console.log('this.selectedTemplate', this.selectedTemplate)
-
-      if (this.cardData.website) {
-        this.generateQRCode();
-      }
     } catch (error) {
       console.error('初始化模板失败:', error);
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.generateQRCode();
+    });
   },
   computed: {
     currentTemplate() {
@@ -77,20 +77,25 @@ new Vue({
         this.qrCode.clear();
         this.qrCode.makeCode(this.cardData.website);
       } else {
-        this.qrCode = new window.QRCode(document.getElementById('qrcode-container'), {
+        this.qrCode = new window.QRCode(this.getQrElement(), {
           text: this.cardData.website,
           width: 80,
           height: 80
         });
       }
-    }
+    },
+    getQrElement() {
+      return document.getElementById('qrcode-container');
+    },
   },
   watch: {
     'cardData.website': function(newVal) {
+      console.log('newVal', newVal)
       if (newVal) {
         this.generateQRCode();
       } else {
-        this.qrCode.clear();
+        this.getQrElement().innerHTML = '';
+        this.qrCode = null;
       }
     }
   }

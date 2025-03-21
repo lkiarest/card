@@ -151,18 +151,18 @@ input[type="file"] {
   font-family: "Font Awesome 6 Free";
   position: absolute;
   left: 20px;
-  top: 37px;
+  top: 44px;
   z-index: 1;
   color: #a0aec0;
   font-size: 16px;
 }
 
-.form-group:nth-child(1)::before { content: "\f007"; } /* 姓名图标 */
-.form-group:nth-child(2)::before { content: "\f0b1"; } /* 职位图标 */
-.form-group:nth-child(3)::before { content: "\f095"; } /* 电话图标 */
-.form-group:nth-child(4)::before { content: "\f3c5"; } /* 地址图标 */
-.form-group:nth-child(5)::before { content: "\f0e0"; } /* 邮箱图标 */
-.form-group:nth-child(6)::before { content: "\f1c5"; } /* 文件上传图标 */
+.form-name::before { content: "\f007"; } /* 姓名图标 */
+.form-title::before { content: "\f59b"; } /* 职位图标 */
+.form-phone::before { content: "\f51b"; } /* 电话图标 */
+.form-email::before { content: "\f0e0"; } /* 地址图标 */
+.form-company::before { content: "\f0e0"; } /* 邮箱图标 */
+.form-website::before { content: "\f1c5"; } /* 文件上传图标 */
 
 /* 输入框焦点状态 */
 input:focus {
@@ -187,6 +187,10 @@ button {
 button:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+}
+
+.export {
+  margin-top: 12px;
 }
 
 .template-btn {
