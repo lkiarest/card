@@ -7,14 +7,14 @@ input[type="file"] { width: 100%; padding: 8px; }
 .preview-section { flex: 2; margin-left: 25px; }
 .card-template {
   background: #fff;
-  padding: 25px;
+  padding: 20px;
   display: inline-block;
 }
 .card-box {
   border: 1px dashed #e2e8f0;
   box-sizing: content-box;
   width: 567px;
-  height: 346px;
+  height: 340px;
   position: relative;
   display: flex;
   flex-direction: column;

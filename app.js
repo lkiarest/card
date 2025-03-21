@@ -62,7 +62,8 @@ new Vue({
     exportCard() {
       html2canvas(document.querySelector('.card-template'), {
         logging: true,
-        useCORS: true
+        useCORS: true,
+        scale: window.devicePixelRatio * 2
       }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'my-card.png';

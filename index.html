@@ -72,14 +72,7 @@
                 <h2>预览</h2>
                 <div class="card-template">
                     <div class="card-box" :style="currentTemplate.styles">
-                        <div v-for="item in currentTemplate.elements" :key="item.key" :class="['pos-' + item.key, item.key + '-element']"
-                            :style="{
-                                left: item.position?.left,
-                                top: item.position?.top,
-                                fontSize: item.fontSize,
-                                color: item.color,
-                                width: item.width
-                            }">
+                        <div v-for="item in currentTemplate.elements" :key="item.key" :class="['pos-' + item.key, item.key + '-element']" :style="item.style">
                             <div v-if="item.key === 'name'" class="name"> {{ cardData.name }} </div>
                             <div v-if="item.key === 'title'" class="title">{{ cardData.title }}</div>
                             <div v-if="item.key === 'logo'" class="logo">
@@ -106,18 +99,12 @@
                                 <span>{{ cardData.company }}</span>
                             </div>
                         </div>
-                        <div id="qrcode-container" class="icon-item" :style="{
-                            left: currentTemplate?.qrcode?.position?.left,
-                            top: currentTemplate?.qrcode?.position?.top,
-                            width: currentTemplate?.qrcode?.width,
-                            height: currentTemplate?.qrcode?.height
-                        }"></div>
+                        <div id="qrcode-container" class="icon-item" :style="currentTemplate.qrcode.style"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
