@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <title>在线名片生成器</title>
   <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/left.css">
+  <link rel="stylesheet" href="styles/middle.css">
+  <link rel="stylesheet" href="styles/right.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -15,7 +18,7 @@
 <body>
   <div id="app">
     <div class="container">
-      <!-- 表单输入区 -->
+      <!-- 左侧表单输入区 -->
       <div class="form-section">
         <h2>名片信息</h2>
         <div class="form-group form-name">
@@ -34,74 +37,75 @@
           <label>邮箱：</label>
           <input type="text" v-model="cardData.email">
         </div>
-
         <div class="form-group form-company">
           <label>公司：</label>
           <input type="text" v-model="cardData.company">
         </div>
-
         <div class="form-group form-website">
           <label>网站：</label>
           <input type="text" v-model="cardData.website">
         </div>
-
         <div class="form-group form-address">
           <label>地址：</label>
           <input type="text" v-model="cardData.address">
         </div>
-
         <div class="form-group form-logo">
           <label>Logo：</label>
           <input type="file" @change="handleLogoUpload" accept="image/*">
         </div>
       </div>
 
-      <!-- 名片预览区 -->
+      <!-- 中间预览区 -->
       <div class="preview-section">
         <h2>预览</h2>
-        <div class="template-selector">
-          <h3>选择模板：</h3>
-          <button class="template-btn" v-for="(template, index) in templates" :key="index"
-            @click="selectedTemplate = template.id"
-            :style="{ backgroundColor: template.id === selectedTemplate ? '#e0e0e0' : '' }">
-            {{ template.name }}
-          </button>
-        </div>
-        <div class="card-template">
-          <div class="card-box" :style="currentTemplate.styles">
-            <div v-for="item in currentTemplate.elements" :key="item.key"
-              :class="['pos-' + item.key, item.key + '-element']" :style="item.style">
-              <div v-if="item.key === 'name'" class="name"> {{ cardData.name }} </div>
-              <div v-if="item.key === 'title'" class="title">{{ cardData.title }}</div>
-              <div v-if="item.key === 'logo'" class="logo">
-                <img v-if="cardData.logo" :src="cardData.logo" :style="{ width: item.width }">
+        <div class="preview-body">
+          <div class="card-template">
+            <div class="card-box" :style="currentTemplate.styles">
+              <div v-for="item in currentTemplate.elements" :key="item.key"
+                :class="['pos-' + item.key, item.key + '-element']" :style="item.style">
+                <div v-if="item.key === 'name'" class="name">{{ cardData.name }}</div>
+                <div v-if="item.key === 'title'" class="title">{{ cardData.title }}</div>
+                <div v-if="item.key === 'logo'" class="logo">
+                  <img v-if="cardData.logo" :src="cardData.logo" :style="{ width: item.width }">
+                </div>
+                <div v-if="item.key === 'phone' && cardData.phone" class="phone icon-item">
+                  <i class="fa-sharp fa-solid fa-phone"></i>
+                  <span>{{ cardData.phone }}</span>
+                </div>
+                <div v-if="item.key === 'address' && cardData.address" class="addres icon-item">
+                  <i class="fa-sharp fa-solid fa-map-marker-alt"></i>
+                  <span>{{ cardData.address }}</span>
+                </div>
+                <div v-if="item.key === 'email' && cardData.email" class="email icon-item">
+                  <i class="fa-sharp fa-solid fa-envelope"></i>
+                  <span>{{ cardData.email }}</span>
+                </div>
+                <div v-if="item.key === 'website' && cardData.website" class="website icon-item">
+                  <i class="fa-sharp fa-solid fa-globe"></i>
+                  <span>{{ cardData.website }}</span>
+                </div>
+                <div v-if="item.key === 'company' && cardData.company" class="company icon-item">
+                  <i class="fa-sharp fa-solid fa-building"></i>
+                  <span>{{ cardData.company }}</span>
+                </div>
               </div>
-              <div v-if="item.key === 'phone' && cardData.phone" class="phone icon-item">
-                <i class="fa-sharp fa-solid fa-phone"></i>
-                <span>{{ cardData.phone }}</span>
-              </div>
-              <div v-if="item.key === 'address' && cardData.address" class="addres icon-item">
-                <i class="fa-sharp fa-solid fa-map-marker-alt"></i>
-                <span>{{ cardData.address }}</span>
-              </div>
-              <div v-if="item.key === 'email' && cardData.email" class="email icon-item">
-                <i class="fa-sharp fa-solid fa-envelope"></i>
-                <span>{{ cardData.email }}</span>
-              </div>
-              <div v-if="item.key === 'website' && cardData.website" class="website icon-item">
-                <i class="fa-sharp fa-solid fa-globe"></i>
-                <span>{{ cardData.website }}</span>
-              </div>
-              <div v-if="item.key === 'company' && cardData.company" class="company icon-item">
-                <i class="fa-sharp fa-solid fa-building"></i>
-                <span>{{ cardData.company }}</span>
-              </div>
+              <div id="qrcode-container" class="icon-item" :style="currentTemplate?.qrcode?.style"></div>
             </div>
-            <div id="qrcode-container" class="icon-item" :style="currentTemplate?.qrcode?.style"></div>
+          </div>
+          <div class="export">
+            <button @click="exportCard">导出图片</button>
           </div>
         </div>
-        <div class="export">
-          <button @click="exportCard">导出图片</button>
+      </div>
+      <!-- 右侧模板列表 -->
+      <div class="template-list-section">
+        <h2>模板列表</h2>
+        <div class="template-items">
+          <div class="template-item" v-for="template in templates" :key="template.id"
+            @click="selectedTemplate = template.id" :class="{ active: template.id === selectedTemplate }">
+            <img class="template-thumbnail" :src="template.thumbnail" alt="模板">
+            <div class="template-name">{{template.name}}</div>
+          </div>
         </div>
       </div>
     </div>

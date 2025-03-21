@@ -1,36 +1,39 @@
 {
-  "id": "minimal_white",
-  "name": "简约白",
-  "thumbnail": "templates/minimal_white/thumbnail.png",
+  "id": "minimal_blue",
+  "name": "艺术家",
+  "thumbnail": "templates/minimal_blue/thumbnail.png",
   "styles": {
-    "backgroundImage": "url(templates/minimal_white/bg-water.png)",
-    "backgroundSize": "cover"
+    "backgroundImage": "url(templates/minimal_blue/bg-water.png)",
+    "backgroundColor": "rgb(0, 0, 150)",
+    "backgroundRepeat": "repeat-x",
+    "backgroundSize": "67%",
+    "backgroundBlendMode": "hue"
   },
   "elements": [
     {
       "key": "name",
       "style": {
         "fontWeight": "bold",
-        "left": "6%",
+        "left": "36%",
         "top": "16%",
         "fontSize": "24px",
-        "color": "#333333"
+        "color": "#fff"
       }
     },
     {
       "key": "title",
       "style": {
-        "left": "6%",
+        "left": "36%",
         "top": "26%",
         "fontSize": "16px",
-        "color": "#000"
+        "color": "#fff"
       }
     },
     {
       "key": "logo",
       "style": {
         "left": "80%",
-        "top": "28%",
+        "top": "8%",
         "width": "80px"
       }
     },
@@ -40,7 +43,7 @@
         "left": "6%",
         "top": "40%",
         "fontSize": "16px",
-        "color": "#2c3e50"
+        "color": "#fff"
       }
     },
     {
@@ -49,7 +52,7 @@
         "left": "6%",
         "top": "50%",
         "fontSize": "16px",
-        "color": "#2c3e50"
+        "color": "#fff"
       }
     },
     {
@@ -58,7 +61,7 @@
         "left": "6%",
         "top": "60%",
         "fontSize": "16px",
-        "color": "#2c3e50"
+        "color": "#fff"
       }
     },
     {
@@ -67,7 +70,7 @@
         "left": "6%",
         "top": "70%",
         "fontSize": "16px",
-        "color": "#2c3e50"
+        "color": "#fff"
       }
     },
     {
@@ -76,14 +79,14 @@
         "left": "6%",
         "top": "80%",
         "fontSize": "16px",
-        "color": "#2c3e50"
+        "color": "#fff"
       }
     }
   ],
   "qrcode": {
     "style": {
       "left": "80%",
-      "top": "67%",
+      "top": "37%",
       "width": "80px",
       "height": "80px"
     }

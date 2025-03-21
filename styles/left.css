@@ -1,0 +1,63 @@
+.form-section {
+    background: #ffffff;
+    margin-bottom: 30px;
+    flex: 300px 0 0;
+    height: 100vh;
+    overflow: auto;
+  }
+  
+  .form-section h2 {
+    color: #2d3748;
+    font-size: 20px;
+    padding-left: 12px;
+  }
+  
+  .form-group {
+    padding: 12px;
+    position: relative;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-weight: 500;
+  }
+  
+  input[type="text"],
+  input[type="file"] {
+    width: 100%;
+    max-width: 240px;
+    padding: 12px 15px 12px 32px;
+    box-sizing: border-box;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+  }
+  
+  .form-group::before {
+    font-family: "Font Awesome 6 Free";
+    position: absolute;
+    left: 20px;
+    top: 54px;
+    z-index: 1;
+    color: #a0aec0;
+    font-size: 16px;
+  }
+  
+  .form-name::before { content: "\f007"; }
+  .form-title::before { content: "\f59b"; }
+  .form-phone::before { content: "\f51b"; }
+  .form-email::before { content: "\f0e0"; }
+  .form-company::before { content: "\f0e0"; }
+  .form-website::before { content: "\f1c5"; }
+  
+  input:focus {
+    border-color: #63b3ed;
+    box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.2);
+    background-color: #ffffff;
+    outline: none;
+  }
+  

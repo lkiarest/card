@@ -2,8 +2,11 @@
   "templates": [
     {
       "id": "minimal_white",
-      "name": "简约白",
       "path": "minimal_white/main.json"
+    }, 
+    {
+      "id": "art",
+      "path": "minimal_blue/main.json"
     }
   ]
 }

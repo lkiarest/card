@@ -1,0 +1,85 @@
+.preview-section {
+  flex: 2;
+}
+
+.preview-body {
+  padding: 20px;
+}
+
+.card-template {
+  background: #fff;
+  display: inline-block;
+}
+
+.card-box {
+  border: 1px dashed #e2e8f0;
+  box-sizing: content-box;
+  width: 567px;
+  height: 340px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+[class^="pos-"] {
+  position: absolute !important;
+}
+
+.name-element {
+  z-index: 2;
+  font-weight: 600;
+}
+
+.title-element {
+  z-index: 2;
+  font-weight: 200;
+  font-family: system-ui;
+}
+
+.logo-element {
+  z-index: 1;
+}
+
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+
+.icon-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-item i {
+  display: inline-block;
+  width: 16px;
+  text-align: center;
+  flex: 16px 1 0;
+}
+
+.addres.icon-item {
+  align-items: baseline;
+  max-width: 80%;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #34495e;
+}
+
+.contact-info i {
+  font-size: 14px;
+  color: #3498db;
+}
+
+#qrcode-container {
+  position: absolute;
+}
