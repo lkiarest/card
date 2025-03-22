@@ -3,6 +3,10 @@
     {
       "id": "minimal_white",
       "path": "minimal_white/main.json"
+    },
+    {
+      "id": "elegant_corporate",
+      "path": "elegant_corporate/main.json"
     }
   ]
 }
