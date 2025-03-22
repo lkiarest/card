@@ -1,0 +1,127 @@
+{
+  "id": "minimal_white",
+  "name": "简约白",
+  "thumbnail": "templates/minimal_white/thumbnail.png",
+  "front": {
+    "styles": {
+      "backgroundImage": "url(templates/minimal_white/bg-water.png)",
+      "backgroundSize": "cover"
+    },
+    "elements": [
+    {
+      "key": "name",
+      "style": {
+        "fontWeight": "bold",
+        "left": "6%",
+        "top": "16%",
+        "fontSize": "24px",
+        "color": "#333333"
+      }
+    },
+    {
+      "key": "title",
+      "style": {
+        "left": "6%",
+        "top": "26%",
+        "fontSize": "16px",
+        "color": "#000"
+      }
+    },
+    {
+      "key": "phone",
+      "icon": "fa-sharp fa-solid fa-phone",
+      "style": {
+        "left": "6%",
+        "top": "40%",
+        "fontSize": "16px",
+        "color": "#2c3e50"
+      }
+    },
+    {
+      "key": "email",
+      "icon": "fa-sharp fa-solid fa-envelope",
+      "style": {
+        "left": "6%",
+        "top": "50%",
+        "fontSize": "16px",
+        "color": "#2c3e50"
+      }
+    },
+    {
+      "key": "company",
+      "icon": "fa-sharp fa-solid fa-building",
+      "style": {
+        "left": "6%",
+        "top": "60%",
+        "fontSize": "16px",
+        "color": "#2c3e50"
+      }
+    },
+    {
+      "key": "website",
+      "icon": "fa-sharp fa-solid fa-globe",
+      "style": {
+        "left": "6%",
+        "top": "70%",
+        "fontSize": "16px",
+        "color": "#2c3e50"
+      }
+    },
+    {
+      "key": "address",
+      "icon": "fa-sharp fa-solid fa-location-dot",
+      "style": {
+        "left": "6%",
+        "top": "80%",
+        "fontSize": "16px",
+        "color": "#2c3e50",
+        "maxWidth": "400px"
+      }
+    },
+    {
+      "key": "logo",
+      "style": {
+        "left": "80%",
+        "top": "28%",
+        "width": "80px"
+      }
+    }, {
+      "key": "qrcode",
+      "style": {
+        "left": "80%",
+        "top": "67%",
+        "width": "80px",
+        "height": "80px"
+      }
+    }
+  ]},
+  "back": {
+    "styles": {
+      "backgroundImage": "url(templates/minimal_white/bg-water-back.png)",
+      "backgroundSize": "cover"
+    },
+    "elements": [
+      {
+        "key": "logo",
+        "style": {
+          "left": "20%",
+          "top": "40%",
+          "width": "100px"
+        }
+      },
+      {
+        "key": "website",
+        "style": {
+          "right": "0",
+          "top": "48%",
+          "fontSize": "16px",
+          "color": "#fff",
+          "backgroundColor": "#333",
+          "padding": "4px 20px 4px 16px",
+          "borderBottomLeftRadius": "15px",
+          "borderTopLeftRadius": "15px"
+        }
+      }
+    ]
+  }
+}

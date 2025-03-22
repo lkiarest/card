@@ -1,14 +1,18 @@
 .preview-section {
-  flex: 2;
+  flex: 1;
+  height: 100vh;
+  overflow: auto;
 }
 
 .preview-body {
-  padding: 20px;
+  padding: 8px 0 0 8px;
 }
 
 .card-template {
   background: #fff;
   display: inline-block;
+  padding: 20px;
+  position: relative;
 }
 
 .card-box {
@@ -80,6 +84,53 @@
   color: #3498db;
 }
 
-#qrcode-container {
+.export {
   position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* 移动端适配样式 */
+@media screen and (max-width: 768px) {
+  .preview-section {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .preview-body {
+    padding: 8px;
+  }
+
+  .card-template {
+    padding: 10px;
+  }
+
+  .card-box {
+    height: auto;
+    min-height: 340px;
+  }
+
+  .contacts-container {
+    gap: 4px;
+  }
+
+  .icon-item {
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  .addres.icon-item {
+    max-width: 100%;
+  }
+
+  .contact-info {
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  .export {
+    bottom: 10px;
+    right: 10px;
+  }
 }

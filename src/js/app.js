@@ -1,17 +1,18 @@
-import TemplateLoader from './js/template-loader.js';
+import TemplateLoader from './template-loader.js';
 
 new Vue({
   el: '#app',
   data: {
     cardData: {
-      name: 'Lily Wang',
-      title: 'Sales Manager',
-      phone: '18120192758',
-      email: 'sales@lilysunshine.net',
-      address: 'XIAOGUANGZHUANG TOWN, BAOYING COUNTY, YANGZHOU CITY, JIANGSU PROVINCE,CHINA',
+      name: '',
+      title: '',
+      phone: '',
+      email: '',
+      address: '',
+      company: '',
+      website: '',
       logo: '',
-      company: 'Yangzhou Lily Sunshine Co., Ltd',
-      website: 'https://lilysunshine.net',
+      qrcode: ''
     },
     qrCode: null,
     selectedTemplate: null,
@@ -19,6 +20,18 @@ new Vue({
   },
   async created() {
     try {
+      // 从 localStorage 中获取保存的名片数据
+      const savedCardData = localStorage.getItem('cardData');
+      if (savedCardData) {
+        try {
+          // 解析并合并保存的数据
+          const parsedData = JSON.parse(savedCardData);
+          this.cardData = { ...this.cardData, ...parsedData };
+        } catch (error) {
+          console.error('解析保存的名片数据失败:', error);
+        }
+      }
+      // 初始化模板
       const templateLoader = new TemplateLoader();
       this.templates = await templateLoader.loadTemplates();
       this.selectedTemplate = this.templates[0]?.id || '';
@@ -34,7 +47,6 @@ new Vue({
   computed: {
     currentTemplate() {
       const template = this.templates.find(t => t.id === this.selectedTemplate) || {};
-      console.log('template', template)
       return template;
     }
   },
@@ -49,24 +61,17 @@ new Vue({
         reader.readAsDataURL(file);
       }
     },
-    handleQrcodeUpload(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.cardData.qrcode = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    },
-    exportCard() {
-      html2canvas(document.querySelector('.card-template'), {
+    exportCard(e) {
+      const type = e.srcElement.dataset['type']
+      const selectedName = this.templates.find(t => t.id === this.selectedTemplate)?.name || 'card';
+      const container = e.srcElement.closest('.card-template');
+      html2canvas(container, {
         logging: true,
         useCORS: true,
         scale: window.devicePixelRatio * 2
       }).then(canvas => {
         const link = document.createElement('a');
-        link.download = 'my-card.png';
+        link.download = `${selectedName}-${type}.png`;
         link.href = canvas.toDataURL();
         link.click();
       });
@@ -83,6 +88,11 @@ new Vue({
           height: 80
         });
       }
+      // 获取二维码图片的 base64 数据
+      const qrCanvas = this.getQrElement().querySelector('canvas');
+      if (qrCanvas) {
+        this.cardData.qrcode = qrCanvas.toDataURL('image/png');
+      }
     },
     getQrElement() {
       return document.getElementById('qrcode-container');
@@ -90,12 +100,19 @@ new Vue({
   },
   watch: {
     'cardData.website': function(newVal) {
-      console.log('newVal', newVal)
       if (newVal) {
         this.generateQRCode();
       } else {
         this.getQrElement().innerHTML = '';
         this.qrCode = null;
+        this.cardData.qrcode = '';
+      }
+    },
+    'cardData': {
+      deep: true,
+      handler(newVal) {
+        // 将名片数据保存到 localStorage
+        localStorage.setItem('cardData', JSON.stringify(newVal));
       }
     }
   }

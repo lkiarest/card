@@ -1,0 +1,74 @@
+{
+  "name": "elegant_corporate",
+  "displayName": "优雅商务",
+  "description": "适合企业高管使用的高端商务风格名片",
+  "version": "1.0.0",
+  "style": {
+    "background": {
+      "color": "#1a1a1a"
+    },
+    "front": {
+      "layout": {
+        "name": {
+          "font": "Montserrat",
+          "size": 24,
+          "weight": "600",
+          "color": "#ffffff",
+          "position": {
+            "x": 20,
+            "y": 40
+          }
+        },
+        "title": {
+          "font": "Montserrat",
+          "size": 14,
+          "weight": "400", 
+          "color": "#0066cc",
+          "position": {
+            "x": 20,
+            "y": 70
+          }
+        },
+        "contact": {
+          "font": "Montserrat",
+          "size": 12,
+          "color": "#ffffff",
+          "spacing": 20,
+          "position": {
+            "x": 20,
+            "y": 120
+          }
+        },
+        "logo": {
+          "maxWidth": 80,
+          "maxHeight": 80,
+          "position": {
+            "x": 280,
+            "y": 40
+          }
+        }
+      }
+    },
+    "back": {
+      "layout": {
+        "qrCode": {
+          "size": 100,
+          "position": {
+            "x": 150,
+            "y": 75
+          }
+        },
+        "companyName": {
+          "font": "Montserrat",
+          "size": 16,
+          "weight": "600",
+          "color": "#ffffff",
+          "position": {
+            "x": 20,
+            "y": 40
+          }
+        }
+      }
+    }
+  }
+}

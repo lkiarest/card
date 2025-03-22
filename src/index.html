@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <title>在线名片生成器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="在线名片生成器">
+  <meta name="keywords" content="在线名片生成器">
   <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/left.css">
-  <link rel="stylesheet" href="styles/middle.css">
-  <link rel="stylesheet" href="styles/right.css">
+  <link rel="stylesheet" href="styles/all.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script type="module" src="./app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </head>
 
 <body>
@@ -58,10 +58,10 @@
       <!-- 中间预览区 -->
       <div class="preview-section">
         <h2>预览</h2>
-        <div class="preview-body">
+        <div class="preview-body front">
           <div class="card-template">
-            <div class="card-box" :style="currentTemplate.styles">
-              <div v-for="item in currentTemplate.elements" :key="item.key"
+            <div class="card-box" :style="currentTemplate?.front?.styles">
+              <div v-for="item in currentTemplate?.front?.elements" :key="item.key"
                 :class="['pos-' + item.key, item.key + '-element']" :style="item.style">
                 <div v-if="item.key === 'name'" class="name">{{ cardData.name }}</div>
                 <div v-if="item.key === 'title'" class="title">{{ cardData.title }}</div>
@@ -69,31 +69,73 @@
                   <img v-if="cardData.logo" :src="cardData.logo" :style="{ width: item.width }">
                 </div>
                 <div v-if="item.key === 'phone' && cardData.phone" class="phone icon-item">
-                  <i class="fa-sharp fa-solid fa-phone"></i>
+                  <i v-if="item.icon" :class="item.icon"></i>
                   <span>{{ cardData.phone }}</span>
                 </div>
                 <div v-if="item.key === 'address' && cardData.address" class="addres icon-item">
-                  <i class="fa-sharp fa-solid fa-map-marker-alt"></i>
+                  <i v-if="item.icon" :class="item.icon"></i>
                   <span>{{ cardData.address }}</span>
                 </div>
                 <div v-if="item.key === 'email' && cardData.email" class="email icon-item">
-                  <i class="fa-sharp fa-solid fa-envelope"></i>
+                  <i v-if="item.icon" :class="item.icon"></i>
                   <span>{{ cardData.email }}</span>
                 </div>
                 <div v-if="item.key === 'website' && cardData.website" class="website icon-item">
-                  <i class="fa-sharp fa-solid fa-globe"></i>
+                  <i v-if="item.icon" :class="item.icon"></i>
                   <span>{{ cardData.website }}</span>
                 </div>
                 <div v-if="item.key === 'company' && cardData.company" class="company icon-item">
-                  <i class="fa-sharp fa-solid fa-building"></i>
+                  <i v-if="item.icon" :class="item.icon"></i>
                   <span>{{ cardData.company }}</span>
                 </div>
+                <div v-if="item.key === 'qrcode' && cardData.qrcode" class="qrcode">
+                  <img :src="cardData.qrcode">
+                </div>
               </div>
-              <div id="qrcode-container" class="icon-item" :style="currentTemplate?.qrcode?.style"></div>
+            </div>
+            <div class="export" data-html2canvas-ignore="true">
+              <button data-type="front" @click="exportCard">导出图片</button>
             </div>
           </div>
-          <div class="export">
-            <button @click="exportCard">导出图片</button>
+        </div>
+        <div class="preview-body back">
+          <div class="card-template">
+            <div class="card-box" :style="currentTemplate?.back?.styles">
+              <div v-for="item in currentTemplate?.back?.elements" :key="item.key"
+                :class="['pos-' + item.key, item.key + '-element']" :style="item.style">
+                <div v-if="item.key === 'name'" class="name">{{ cardData.name }}</div>
+                <div v-if="item.key === 'title'" class="title">{{ cardData.title }}</div>
+                <div v-if="item.key === 'logo'" class="logo">
+                  <img v-if="cardData.logo" :src="cardData.logo" :style="{ width: item.width }">
+                </div>
+                <div v-if="item.key === 'phone' && cardData.phone" class="phone icon-item">
+                  <i v-if="item.icon" :class="item.icon"></i>
+                  <span>{{ cardData.phone }}</span>
+                </div>
+                <div v-if="item.key === 'address' && cardData.address" class="addres icon-item">
+                  <i v-if="item.icon" :class="item.icon"></i>
+                  <span>{{ cardData.address }}</span>
+                </div>
+                <div v-if="item.key === 'email' && cardData.email" class="email icon-item">
+                  <i v-if="item.icon" :class="item.icon"></i>
+                  <span>{{ cardData.email }}</span>
+                </div>
+                <div v-if="item.key === 'website' && cardData.website" class="website icon-item">
+                  <i v-if="item.icon" :class="item.icon"></i>
+                  <span>{{ cardData.website }}</span>
+                </div>
+                <div v-if="item.key === 'company' && cardData.company" class="company icon-item">
+                  <i v-if="item.icon" :class="item.icon"></i>
+                  <span>{{ cardData.company }}</span>
+                </div>
+                <div v-if="item.key === 'qrcode' && cardData.qrcode" class="qrcode">
+                  <img :src="cardData.qrcode">
+                </div>
+              </div>
+            </div>
+            <div class="export" data-html2canvas-ignore="true">
+              <button data-type="back" @click="exportCard">导出图片</button>
+            </div>
           </div>
         </div>
       </div>
@@ -110,6 +152,7 @@
       </div>
     </div>
   </div>
+  <div id="qrcode-container" class="icon-item" :style="currentTemplate?.qrcode?.style"></div>
 </body>
 
 </html>

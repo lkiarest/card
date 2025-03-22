@@ -3,10 +3,6 @@
     {
       "id": "minimal_white",
       "path": "minimal_white/main.json"
-    }, 
-    {
-      "id": "art",
-      "path": "minimal_blue/main.json"
     }
   ]
 }

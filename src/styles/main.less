@@ -49,6 +49,58 @@ button:hover {
   box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
 }
 
-.export {
-  margin-top: 12px;
+#qrcode-container {
+  position: absolute;
+  top: 0;
+  left: -10000px;
+}
+
+/* 移动端适配样式 */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px 20px;
+  }
+}
+
+/* 小屏幕手机适配 */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  h3 {
+    font-size: 12px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
 }

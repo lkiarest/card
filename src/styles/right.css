@@ -61,3 +61,45 @@
   line-height: 24px;
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+/* 移动端适配样式 */
+@media screen and (max-width: 1400px)  {
+  .template-list-section {
+    flex: 250px 0 0;
+  }
+  .template-item {
+    width: 98%;
+    margin: 1% auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .template-list-section {
+    flex: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .template-items {
+    flex-direction: column;
+  }
+
+  .template-selector {
+    margin: 10px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 10px;
+  }
+
+  .template-btn {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .template-name {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}

@@ -14,7 +14,7 @@ class TemplateLoader {
         indexData.templates.map(async template => {
           const res = await fetch(`/templates/${template.path}`);
           const config = await res.json();
-          if (!config.elements) {
+          if (!config.front.elements || !config.back.elements) {
             throw new Error(`模板${template.id}配置错误：缺少有效的elements字段`);
           }
           return config;
