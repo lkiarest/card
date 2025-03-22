@@ -1,35 +1,37 @@
-# 名片生成器
+[中文](readme/中文.md)
 
-一个简单的在线名片生成工具。
+# Business Card Generator
+A lightweight, frontend-only business card generation tool that supports quick creation and export of traditional horizontal business cards. Visit [https://card.kgsoft.cn](https://card.kgsoft.cn) to get started.
 
-## 功能特点
+![Online Card Preview](demo.png)
 
-- 根据用户输入信息自动生成名片图片
-- 支持多种模板样式切换
-- 支持图片下载
-- 简单易用的界面
+## Features
 
-## 技术栈
+- Automatically generates business card images based on user input
+- Supports multiple template styles
+- Supports image download
+- Simple and user-friendly interface
+
+## Tech Stack
 - Vue
 
-## 使用方法
+## How to Use
 
-1. 输入个人信息
-2. 选择喜欢的模板样式
-3. 预览名片效果
-4. 点击下载按钮保存图片
+1. Enter personal information
+2. Choose your preferred template style
+3. Preview the business card effect
+4. Click the download button to save the image
 
-## 本地开发
-
+## Local Development
 ```
 yarn install
 yarn dev
 ```
-## 部署
+## deplay
 ```
 yarn build
 ```
-## 贡献
-欢迎提出问题和建议，或者直接提 PR。
-## 许可证
+## Contributing
+Welcome to raise issues and suggestions, or directly submit PRs.
+## License
 MIT License
